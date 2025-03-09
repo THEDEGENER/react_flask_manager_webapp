@@ -9,7 +9,6 @@ from managment_api.db import get_db
 
 
 bp_auth = Blueprint('auth', __name__, url_prefix='/auth')
-CORS(bp_auth, supports_credentials=True, origins="http://127.0.0.1:5173")
 
 @bp_auth.before_app_request
 def load_logged_in_user():
@@ -92,8 +91,7 @@ def login():
     
 @bp_auth.route('/logout')
 def logout():
-    try:
-        session.clear()
-        return {'success': True}
-    except Exception as e:
-        return {'success': False, 'error': e}
+    session.clear()
+    return {'success': True}
+
+

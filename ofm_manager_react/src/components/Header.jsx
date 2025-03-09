@@ -15,13 +15,13 @@ export default function Header() {
   async function handleClick(e) {
     e.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:5000/auth/logout", {
+      const response = await fetch("/api/auth/logout", {
         credentials: "include",
       });
       if (response.ok) {
         const jsonResponse = await response.json();
         if (jsonResponse.success) {
-          navigate("/landing/login");
+          navigate("/home");
         }
       }
     } catch (error) {

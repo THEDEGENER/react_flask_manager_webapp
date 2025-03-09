@@ -8,12 +8,16 @@ export default function Employees() {
 
   useEffect(() => {
     const fetchEmployees = async () => {
-      const response = await fetch(
-        "http://127.0.0.1:5000/employees/get_employees"
-      );
-      const employeesData = await response.json();
-      console.log(employeesData);
-      setEmployees(employeesData);
+      try {
+        const response = await fetch("/api/employees/get_employees");
+        if (response.ok) {
+          const employeesData = await response.json();
+          console.log(employeesData);
+          setEmployees(employeesData.employees);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchEmployees();

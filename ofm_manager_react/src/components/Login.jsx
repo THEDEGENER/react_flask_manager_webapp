@@ -19,7 +19,7 @@ export default function Login() {
   async function handleSubmit(formData) {
     console.log(formData);
     try {
-      const response = await fetch("http://127.0.0.1:5000/auth/login", {
+      const response = await fetch("/api/auth/login", {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -29,7 +29,7 @@ export default function Login() {
         const jsonResponse = await response.json();
         console.log(jsonResponse.success);
         jsonResponse.success
-          ? navigate("/home/add_employee")
+          ? navigate("/app")
           : setErrors(jsonResponse.resData.errors);
       }
     } catch (error) {
@@ -113,7 +113,7 @@ export default function Login() {
         <p className="mt-10 text-center text-sm/6 text-gray-500">
           Dont have an account?{" "}
           <Link
-            to="/landing/register"
+            to="/register"
             className="font-semibold text-indigo-600 hover:text-indigo-500"
           >
             Start a 14 day free trial

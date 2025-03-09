@@ -7,7 +7,7 @@ from managment_api.db import get_db
 from managment_api.auth import login_required
 
 bp_employees = Blueprint('employees', __name__, url_prefix='/employees')
-CORS(bp_employees, supports_credentials=True, origins="http://127.0.0.1:5173")
+
 
 def get_employee(id, check_user=True):
     employee = get_db().execute(
@@ -31,7 +31,8 @@ def get_employees():
     employees = db.execute(
         'SELECT * FROM employee WHERE user_id = ?', (g.user['id'],)
     ).fetchall()
-    return {"employees": employees}
+    result = [dict(row) for row in employees]
+    return {"employees": result}
 
 
 @bp_employees.route('/add_employee', methods=('GET', 'POST'))

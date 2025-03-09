@@ -2,7 +2,7 @@ const linkStyle = "text-white/80 px-2 py-1 flex";
 export const navItems = [
   {
     name: "Dashboard",
-    link: "/Dashboard",
+    link: "/app",
     classList: linkStyle,
     icon: (
       <svg
@@ -23,7 +23,7 @@ export const navItems = [
   },
   {
     name: "Employees",
-    link: "/home/employees",
+    link: "/app/employees",
     classList: linkStyle,
     icon: (
       <svg
@@ -44,7 +44,7 @@ export const navItems = [
   },
   {
     name: "Invoicing",
-    link: "/home/invoicing",
+    link: "/app/invoicing",
     classList: linkStyle,
     icon: (
       <svg
@@ -65,7 +65,7 @@ export const navItems = [
   },
   {
     name: "Contracts",
-    link: "/Contracts",
+    link: "/app/contracts",
     classList: linkStyle,
     icon: (
       <svg
@@ -86,7 +86,7 @@ export const navItems = [
   },
   {
     name: "Statistics",
-    link: "/Statistics",
+    link: "/app/statistics",
     classList: linkStyle,
     icon: (
       <svg
@@ -107,7 +107,7 @@ export const navItems = [
   },
   {
     name: "Reports",
-    link: "/Reports",
+    link: "/app/reports",
     classList: linkStyle,
     icon: (
       <svg
