@@ -29,7 +29,7 @@ export default function Login() {
         const jsonResponse = await response.json();
         console.log(jsonResponse.success);
         jsonResponse.success
-          ? navigate("/app")
+          ? navigate("/dashboard")
           : setErrors(jsonResponse.resData.errors);
       }
     } catch (error) {
